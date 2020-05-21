@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +11,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Example Routes
+
+use App\Http\Controllers\BubbleController;
+use Illuminate\Support\Facades\Route;
+
+Route::view('/', 'landing');
+Route::match(['get', 'post'], '/dashboard', function(){
+    return view('dashboard');
 });
-Route::get('/bubble','BubbleController@index');
+Route::view('/pages/slick', 'pages.slick');
+Route::view('/pages/datatables', 'pages.datatables');
+Route::view('/pages/blank', 'pages.blank');
+Route::get('/bubble3','BubbleController@index2');
