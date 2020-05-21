@@ -31,7 +31,6 @@
       var data2=<?php echo $data2; ?>;
 
  document.addEventListener('DOMContentLoaded', function () {
-
      Highcharts.chart('container', {
    chart: {
      type: 'packedbubble',
@@ -47,7 +46,17 @@
      pointFormat: '<b>{point.name}:</b> {point.y}</sub>'
    },
    plotOptions: {
+
      packedbubble: {
+        layoutAlgorithm: {
+            splitSeries: true,
+            parentNodeOptions: {
+                    marker: {
+                        fillOpacity: 0,
+                        lineWidth: 0
+                    }
+                }
+        },
         minSize: 23,
              maxSize: 150,
        dataLabels: {
